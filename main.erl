@@ -1,17 +1,16 @@
 -module(main).
--export([main/1, fizzbuzz/1]).
+-export([main/1, divide/2]).
 
-%% TODO: clauses for fizzbuzz/1
-fizzbuzz(N) when N rem 15   =:= 0   -> "FizzBuzz";
-fizzbuzz(N) when N rem 3    =:= 0   -> "Fizz";
-fizzbuzz(N) when N rem 5    =:= 0   -> "Buzz";
-fizzbuzz(N) -> integer_to_list(N).
+divide(_A, 0) -> {error, division_by_zero};
+divide(A, B) -> {ok, A div B}.
 
 main(_) ->
-    N = list_to_integer(string:trim(io:get_line(""))),
-    Result = fizzbuzz(N),  %% replace with fizzbuzz(N)
-    case Result of 
-        Str when is_list(Str) -> io:format("~s~n", [Str]);
-        Num -> io:format("~w~n", [Num])
+    A = list_to_integer(string:trim(io:get_line(""))),
+    B = list_to_integer(string:trim(io:get_line(""))),
+    case divide(A, B) of 
+        {ok, R} -> 
+            io:format("result: ~w~n", [R]);
+        {error, division_by_zero} ->
+            io:format("error: division_by_zero~n", [])
     end,
     ok.
