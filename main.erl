@@ -2,13 +2,8 @@
 -export([main/1]).
 
 main(_) ->
-    %% TODO: print exactly these four lines:
-    %% -module
-    %% -export
-    %% fn/arity
-    %% Module:Function
-    io:format("-module~n"),
-    io:format("-export~n"),
-    io:format("fn/arity~n"),
-    io:format("Module:Function~n"),
-    ok.
+    Line = string:trim(io:get_line("")),
+    Words = string:tokens(Line, " "),
+    Counts = lists:foldl(fun(W, M) -> maps:update_with(W, fun(N) -> N + 1 end, 1, M) end, #{}, Words),
+    Sorted = lists:sort(maps:to_list(Counts)),
+    lists:foreach(fun({W, C}) -> io:format("~s: ~p~n", [W, C]) end, Sorted).
