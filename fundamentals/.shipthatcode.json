@@ -1,0 +1,7 @@
+{
+  "course": "erlang-fundamentals",
+  "language": "erlang",
+  "language_id": 58,
+  "entrypoint": "main.erl",
+  "version": 1
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local test runner for "Erlang Intermediate" (shipthatcode.com).
+# Local test runner for "Erlang Fundamentals" (shipthatcode.com).
 # Usage:
 #   ./run_tests.sh        run every lesson's tests
 #   ./run_tests.sh 03     run only tests/03-*'s tests

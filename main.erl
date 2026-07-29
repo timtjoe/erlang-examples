@@ -1,9 +1,15 @@
 -module(main).
 -export([main/1]).
 
+loop(N) ->
+    receive
+        inc -> loop(N + 1);
+        {get, From} -> From ! N
+    end.
+
 main(_) ->
-    Line = string:trim(io:get_line("")),
-    Words = string:tokens(Line, " "),
-    Counts = lists:foldl(fun(W, M) -> maps:update_with(W, fun(N) -> N + 1 end, 1, M) end, #{}, Words),
-    Sorted = lists:sort(maps:to_list(Counts)),
-    lists:foreach(fun({W, C}) -> io:format("~s: ~p~n", [W, C]) end, Sorted).
+    Pid = spawn(fun() -> loop(0) end),
+    %% send inc 5 times
+    %% ask for value
+    %% print result
+    Pid ! inc.
