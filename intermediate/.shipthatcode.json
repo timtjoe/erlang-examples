@@ -1,0 +1,38 @@
+{
+  "course": "erlang-intermediate",
+  "language": "erlang",
+  "language_id": 58,
+  "entrypoint": "main.erl",
+  "version": 1,
+  "content_hash": "c5a29a428443f54c",
+  "lessons": [
+    {
+      "slug": "spawn-loop",
+      "tests_hash": "fd7c721dab1d"
+    },
+    {
+      "slug": "records-maps",
+      "tests_hash": "cbe6c1fdb32b"
+    },
+    {
+      "slug": "errors",
+      "tests_hash": "e51df03710df"
+    },
+    {
+      "slug": "links-monitors",
+      "tests_hash": "6b7235387056"
+    },
+    {
+      "slug": "funs",
+      "tests_hash": "8f315e001670"
+    },
+    {
+      "slug": "bifs",
+      "tests_hash": "cec432873ecf"
+    },
+    {
+      "slug": "io-files",
+      "tests_hash": "07c97ce7dc5d"
+    }
+  ]
+}

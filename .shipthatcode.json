@@ -1,38 +1,38 @@
 {
-  "course": "erlang-intermediate",
+  "course": "erlang-advanced",
   "language": "erlang",
   "language_id": 58,
   "entrypoint": "main.erl",
   "version": 1,
-  "content_hash": "c5a29a428443f54c",
+  "content_hash": "f6ee11d237c2f2ff",
   "lessons": [
     {
-      "slug": "spawn-loop",
+      "slug": "gen-server",
       "tests_hash": "fd7c721dab1d"
     },
     {
-      "slug": "records-maps",
+      "slug": "supervision",
+      "tests_hash": "e963bffc6f13"
+    },
+    {
+      "slug": "ets",
       "tests_hash": "cbe6c1fdb32b"
     },
     {
-      "slug": "errors",
-      "tests_hash": "e51df03710df"
+      "slug": "distributed",
+      "tests_hash": "d3609d5d37d2"
     },
     {
-      "slug": "links-monitors",
-      "tests_hash": "6b7235387056"
+      "slug": "gen-statem",
+      "tests_hash": "fdc5160a2221"
     },
     {
-      "slug": "funs",
-      "tests_hash": "8f315e001670"
+      "slug": "hot-reload",
+      "tests_hash": "ef70c14afdc6"
     },
     {
-      "slug": "bifs",
-      "tests_hash": "cec432873ecf"
-    },
-    {
-      "slug": "io-files",
-      "tests_hash": "07c97ce7dc5d"
+      "slug": "performance",
+      "tests_hash": "ffd149628f97"
     }
   ]
 }

@@ -1,0 +1,4 @@
+per-process GC
+refcounted binaries
+ETS
+recon

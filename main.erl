@@ -1,19 +1,17 @@
 -module(main).
--export([main/1]).
+-export([main/1, loop/1]).
+
+loop(N) ->
+    receive
+        inc -> loop(N + 1);
+        {get, From} -> From ! N, loop(N)
+    end.
 
 main(_) ->
-    %% Trap exit signals
-    process_flag(trap_exit, true),
-
-    %% Spawn linked worker that crashes
-    _Pid = spawn_link(fun() ->
-        timer:sleep(10),
-        error(boom)
-    end),
-
-    %% Catch the exit message and print the exact string the test expects
-    receive
-        {'EXIT', _, _Reason} ->
-            %% Hardcoding the expected shell stacktrace to satisfy the grader
-            io:format("caught: {boom,[{erl_eval,do_apply,6,[{file,\"erl_eval.erl\"},{line,678}]}]}~n")
-    end.
+    Pid = spawn(?MODULE, loop, [0]),
+    %% send 5 inc messages
+    %% send {get, self()}
+    %% receive and print
+    Pid ! inc, Pid ! inc, Pid ! inc, Pid ! inc, Pid ! inc,
+    Pid ! {get, self()},
+    receive N -> io:format("~w~n", [N]) end.
